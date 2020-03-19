@@ -1,18 +1,26 @@
 'use strict';
 
-module.exports.hello = async event => {
+const { Pool } = require('pg');
+const pool = new Pool({
+    connectionString: process.env.DB_URL,
+});
+
+const { init, collectData } = require('./db/postgresql');
+init(pool);
+
+module.exports.collect = async event => {
+    const data = JSON.parse(event.body);
+
+    await collectData(pool, data);
+
   return {
     statusCode: 200,
     body: JSON.stringify(
       {
-        message: 'Go Serverless v1.0! Your function executed successfully!',
-        input: event,
+        message: 'Data collected!',
       },
       null,
       2
     ),
   };
-
-  // Use this code if you don't use the http event with the LAMBDA-PROXY integration
-  // return { message: 'Go Serverless v1.0! Your function executed successfully!', event };
 };

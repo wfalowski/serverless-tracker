@@ -1,0 +1,27 @@
+{
+  "name": "serverless-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wfalowski/serverless-tracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wfalowski/serverless-tracker/issues"
+  },
+  "homepage": "https://github.com/wfalowski/serverless-tracker#readme",
+  "devDependencies": {
+    "serverless": "^1.66.0",
+    "serverless-offline": "^6.0.0",
+    "serverless-plugin-warmup": "^4.8.0"
+  },
+  "dependencies": {
+    "pg": "^7.18.2"
+  }
+}
